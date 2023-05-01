@@ -17,16 +17,16 @@ if (data) {
 }
 
 function onFormInput() {
-  data = { email: email.value, message: message.value };
+  data = { email: email.value.trim(), message: message.value.trim() };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
 function onFormSubmit(e) {
   e.preventDefault();
-  if (email.value === '' || message.value === '') {
+  if (email.value.trim() === '' || message.value.trim() === '') {
     return alert('Всі поля повинні бути заповнені!');
   }
-  console.log({ email: email.value, message: message.value });
+  console.log({ email: email.value.trim(), message: message.value.trim() });
   localStorage.removeItem(STORAGE_KEY);
   e.currentTarget.reset();
   data = {};
